@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:prototipo_v1/screens/car.dart';
-import 'package:prototipo_v1/screens/payment.dart';
+import 'package:prototipo_v1/screens/home_screen.dart';
 
 void main() {
-  runApp(const ProfileApp());
+  runApp(const CarApp());
 }
 
-class ProfileApp extends StatelessWidget {
-  const ProfileApp({Key? key}) : super(key: key);
+class CarApp extends StatelessWidget {
+  const CarApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Profile',
+      title: 'Log-in Form',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.cyan,
@@ -20,24 +19,27 @@ class ProfileApp extends StatelessWidget {
           backgroundColor: Colors.blue, // Color del fondo de la AppBar
         ),
       ),
-      home: const ProfileScreen(),
+      home: const CarScreen(),
     );
   }
 }
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+class CarScreen extends StatelessWidget {
+  const CarScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile'),
+        title: const Text('Log-in Form'),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pop(context);
-          },
+                    final ruta = MaterialPageRoute(builder: (context){
+                      return const MyApp();
+                    });
+                    Navigator.push(context, ruta);
+                  },
         ),
       ),
       body: Center(
@@ -56,7 +58,7 @@ class ProfileScreen extends StatelessWidget {
                 Container(
                   alignment: Alignment.center,
                   child: const Icon(
-                    Icons.person,
+                    Icons.directions_car,
                     size: 60,
                     color: Colors.white,
                   ),
@@ -73,7 +75,7 @@ class ProfileScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         const Text(
-                          'Username',
+                          'Model',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
@@ -85,20 +87,7 @@ class ProfileScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 10),
                         const Text(
-                          'Password',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const TextField(
-                          obscureText: true,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                          ),
-                        ),
-                        const SizedBox(height: 10),
-                        const Text(
-                          'Confirm Password',
+                          'Color',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
@@ -111,57 +100,18 @@ class ProfileScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 10),
                         const Text(
-                          'Vehicle data',
+                          'Car plate',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        ElevatedButton.icon(
-                              onPressed: ()  {
-                                final ruta1 = MaterialPageRoute(builder: (context){
-                                  return const CarScreen();
-                                });
-                                Navigator.push(context, ruta1);
-                              },
-                              icon: const Icon(Icons.upload),
-                              label: const Text(
-                                'Add data',
-                                style: TextStyle(fontSize: 12),
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 10,
-                                  horizontal: 12,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(height: 10),
-                        const Text(
-                          'Payment methods',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
+                        const TextField(
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
                           ),
                         ),
-                        ElevatedButton.icon(
-                              onPressed: () {
-                                final ruta2 = MaterialPageRoute(builder: (context){
-                                  return const AddCardForm();
-                                });
-                                Navigator.push(context, ruta2);
-                              },
-                              icon: const Icon(Icons.upload),
-                              label: const Text(
-                                'Add data',
-                                style: TextStyle(fontSize: 12),
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 10,
-                                  horizontal: 12,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(height: 10),
+                        const SizedBox(height: 15),
                         ElevatedButton(
                           onPressed: () {},
                           child: const Text('Save'),
