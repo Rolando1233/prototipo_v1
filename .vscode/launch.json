@@ -1,0 +1,29 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "prototipo_v1",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/screens/home_screen.dart" // Especifica el archivo principal que deseas ejecutar aquí
+
+        },
+        {
+            "name": "prototipo_v1 (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/screens/home_screen.dart", // También puedes especificar el archivo principal en estas configuraciones si es necesario
+            "flutterMode": "profile"
+        },
+        {
+            "name": "prototipo_v1 (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/screens/home_screen.dart", // También puedes especificar el archivo principal en estas configuraciones si es necesario
+            "flutterMode": "release"
+        }
+    ]
+}
